@@ -1,0 +1,263 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background: #f4f6f8;
+  color: #1f2937;
+}
+
+.app {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+.app-header h1 {
+  font-size: 1.5rem;
+  margin: 8px 0 16px;
+}
+
+/* ---------- Toast ---------- */
+.toast {
+  padding: 10px 14px;
+  border-radius: 6px;
+  margin-bottom: 12px;
+  font-size: 0.9rem;
+}
+.toast-success {
+  background: #d1fae5;
+  color: #065f46;
+}
+.toast-error {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+/* ---------- Summary strip ---------- */
+.summary-strip {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-bottom: 20px;
+}
+.summary-card {
+  background: white;
+  border-radius: 8px;
+  padding: 14px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.summary-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  color: #6b7280;
+  letter-spacing: 0.04em;
+}
+.summary-value {
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
+/* ---------- Layout ---------- */
+.app-main {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 20px;
+  align-items: start;
+}
+
+@media (max-width: 800px) {
+  .app-main {
+    grid-template-columns: 1fr;
+  }
+  .summary-strip {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---------- Form ---------- */
+.expense-form {
+  background: white;
+  padding: 16px;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+.expense-form h2 {
+  margin-top: 0;
+  font-size: 1.1rem;
+}
+.form-row {
+  margin-bottom: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.form-row-split {
+  flex-direction: row;
+  gap: 12px;
+}
+.form-row-split > div {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #374151;
+}
+input,
+select,
+textarea {
+  padding: 8px 10px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  width: 100%;
+  font-family: inherit;
+}
+input:focus,
+select:focus,
+textarea:focus {
+  outline: 2px solid #6366f1;
+  outline-offset: 1px;
+}
+.field-error {
+  color: #dc2626;
+  font-size: 0.75rem;
+}
+.form-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+/* ---------- Buttons ---------- */
+.btn {
+  border: none;
+  border-radius: 6px;
+  padding: 9px 14px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+.btn-primary {
+  background: #6366f1;
+  color: white;
+  flex: 1;
+}
+.btn-secondary {
+  background: #e5e7eb;
+  color: #374151;
+}
+.btn-small {
+  padding: 5px 9px;
+  font-size: 0.78rem;
+  background: #e5e7eb;
+  color: #374151;
+  margin-right: 6px;
+}
+.btn-danger {
+  background: #fee2e2;
+  color: #991b1b;
+}
+.confirm-delete {
+  display: inline-flex;
+  gap: 6px;
+}
+
+/* ---------- Filter bar ---------- */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+.filter-search {
+  flex: 1;
+  min-width: 160px;
+}
+.filter-bar select,
+.filter-bar input[type="date"] {
+  width: auto;
+}
+
+/* ---------- List / table ---------- */
+.expense-list-wrapper {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  overflow-x: auto;
+}
+.expense-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+}
+.expense-table th,
+.expense-table td {
+  padding: 10px 12px;
+  text-align: left;
+  border-bottom: 1px solid #f0f1f3;
+  white-space: nowrap;
+}
+.expense-table th {
+  background: #f9fafb;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  color: #6b7280;
+}
+.notes-cell {
+  white-space: normal;
+  max-width: 200px;
+}
+.state-message {
+  padding: 24px;
+  text-align: center;
+  color: #6b7280;
+  background: white;
+  border-radius: 8px;
+}
+
+.category-pill {
+  padding: 3px 8px;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  background: #eef2ff;
+  color: #4338ca;
+}
+
+/* Stack the table into cards on small screens */
+@media (max-width: 640px) {
+  .expense-table thead {
+    display: none;
+  }
+  .expense-table,
+  .expense-table tbody,
+  .expense-table tr,
+  .expense-table td {
+    display: block;
+    width: 100%;
+  }
+  .expense-table tr {
+    border-bottom: 1px solid #e5e7eb;
+    padding: 10px 0;
+  }
+  .expense-table td {
+    border: none;
+    padding: 4px 12px;
+    white-space: normal;
+  }
+  .expense-table td::before {
+    content: attr(data-label) ": ";
+    font-weight: 600;
+    color: #6b7280;
+  }
+}
